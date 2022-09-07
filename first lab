@@ -1,0 +1,44 @@
+def first(st):
+    return 'True' if st else 'False'
+
+def second(string):
+    return "".join(reversed(string))
+
+def third(array):
+    sum = 0
+    for item in array:
+        if (item > 0): sum += item 
+    return sum
+
+def forth(count):
+    for index in range(count):
+        print(' '*(count-1-index) + '*'*(2*(index)+1))
+
+def fifth(string):
+    string = string.lower()
+    dic = {'@':0}
+    for l in string:
+        if(l in dic.keys()):
+            dic[l]+=1
+        else:
+            dic[l] = 1
+    dic({})
+    
+
+print('First')
+print(first(False))
+print(type(first(False)))
+print('\nSecond')
+print(second('Hello World!'))
+print('\nThird')
+print(third([2,-4,5,1,0,-10]))
+print('\nForth')
+forth(5)
+print('\nFifth')
+print(fifth('aabbccddd'))
+
+
+
+
+
+

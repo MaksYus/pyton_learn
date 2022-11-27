@@ -1,6 +1,7 @@
 import os
-
-
+import doctest
+import math
+import cmath
 
 def first(st:bool)->str:
     """
@@ -141,6 +142,25 @@ def write_result(res, name:str):
     file.write(str(res[1]))
     file.close()
 
+def solve_ten(a:int,b:int,c:int,flag:bool) -> tuple:
+    """
+    решает квадратные уравнения
+    >>> solve_ten(-1,7,8,True)
+    ((-1-0j), (8-0j))
+    >>> solve_ten(-1,2,8,True)
+    ((-2-0j), (4-0j))
+    >>> solve_ten(2,0,2,True)
+    ((0+1j), (0-1j))
+    """
+    d = b*b - 4*a*c
+    if not flag:
+        try: d = math.sqrt(d)
+        except: return None
+    else: 
+        d = cmath.sqrt(d)
+    x1 = (0-b+d)/(2*a)
+    x2 = (0-b-d)/(2*a)
+    return (x1,x2)
 
 # try:
 #     os.mkdir("lab1")
@@ -197,5 +217,9 @@ def write_result(res, name:str):
 # eig_res = [eight(eig_1),eight(eig_2)]
 # write_result(eig_res,'8')
 
-import doctest
 doctest.testmod()
+
+
+class TestClass:
+    def test_first():
+        assert first(True) == "True"
